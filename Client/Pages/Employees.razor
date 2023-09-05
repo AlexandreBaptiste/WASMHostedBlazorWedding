@@ -1,0 +1,33 @@
+﻿@page "/employees"
+
+<PageTitle>Employee</PageTitle>
+
+<h1>Weather forecast</h1>
+
+<p>This component demonstrates fetching data from the server.</p>
+
+
+@if (EmployeeList == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>UUID</th>
+                <th>Nom</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var employee in EmployeeList)
+            {
+                <tr>
+                    <td>@employee.Id</td>
+                    <td>@employee.Name</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

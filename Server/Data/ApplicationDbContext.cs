@@ -1,0 +1,12 @@
+﻿using Microsoft.EntityFrameworkCore;
+using Wedding.Shared.Models;
+
+namespace Wedding.Data
+{
+    public class ApplicationDbContext : DbContext
+    {
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) { }
+
+        public DbSet<Employee> Employees { get; set; }
+    }
+}
