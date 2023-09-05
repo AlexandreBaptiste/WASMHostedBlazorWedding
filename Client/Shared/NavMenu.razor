@@ -1,39 +1,38 @@
-﻿<div class="top-row ps-3 navbar navbar-dark">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="">Wedding</a>
-        <button title="Navigation menu" class="navbar-toggler" @onclick="ToggleNavMenu">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-    </div>
-</div>
-
-<div class="@NavMenuCssClass nav-scrollable" @onclick="ToggleNavMenu">
-    <nav class="flex-column">
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
-                <span class="oi oi-home" aria-hidden="true"></span> Home
-            </NavLink>
-        </div>
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="counter">
-                <span class="oi oi-plus" aria-hidden="true"></span> Counter
-            </NavLink>
-        </div>
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="employees">
-                <span class="oi oi-lightbulb" aria-hidden="true"></span> Employees
-            </NavLink>
-        </div>
-    </nav>
-</div>
+﻿<!-- Header Section -->
+<header class="headerCustom" id="header">
+   <nav class="navbarCustom containerCustom">
+      <a href="/" class="brand">Mariage Léa & Alexandre</a>
+      <div class="burger @IsActive" id="burger" @onclick="ToggleNavMenu">
+         <span class="burger-line"></span>
+         <span class="burger-line"></span>
+         <span class="burger-line"></span>
+      </div>
+      <div class="menu @IsActive" id="menu" @onclick="ToggleNavMenu">
+         <ul class="menu-inner">
+            <li class="menu-item" ><a href="/" class="menu-link" @onclick="ResetMenu">Domaine</a></li>
+            <li class="menu-item" ><a href="/" class="menu-link" @onclick="ResetMenu">Menu</a></li>
+            <li class="menu-item" ><a href="/" class="menu-link" @onclick="ResetMenu">Invités</a></li>
+         </ul>
+      </div>
+      <button class="menu-block"></button>
+   </nav>
+</header>
 
 @code {
-    private bool collapseNavMenu = true;
+    private bool isActive = false;
 
-    private string? NavMenuCssClass => collapseNavMenu ? "collapse" : null;
-
+    private string? IsActive 
+    {
+      get { return isActive ? "is-active" : null; }
+      set { }
+    } 
     private void ToggleNavMenu()
     {
-        collapseNavMenu = !collapseNavMenu;
+        isActive = !isActive;
+    }
+
+    private void ResetMenu()
+    {
+      IsActive = null;
     }
 }
