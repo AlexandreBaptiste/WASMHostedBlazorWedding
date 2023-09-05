@@ -1,0 +1,40 @@
+﻿.footer {
+    background-color: lightgreen;
+    height: 10%;
+}
+
+li {
+    display: inline-block;
+    font-size: 0.75em;
+    list-style-type: none;
+    padding: 1em;
+    text-transform: uppercase;
+}
+
+li span {
+    display: block;
+    font-size: 2rem;
+}
+
+@media all and (max-width: 400px) {
+
+    .timer li {
+        font-size: calc(0.75em * 0.70);
+    }
+
+    .timer li span {
+        font-size: calc(2rem * 0.75);
+    }
+
+    li {
+        font-size: calc(0.75em * 0.75);
+    }
+
+    li span {
+        font-size: calc(2rem * 0.75);
+    }
+
+    .footer {
+        position: absolute !important;
+    }
+}

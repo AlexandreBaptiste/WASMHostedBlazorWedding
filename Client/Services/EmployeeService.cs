@@ -5,26 +5,26 @@ using System.Text;
 
 namespace Wedding.Services
 {
-    public class EmployeeService : IEmployeesService
+    public class Guestservice : IguestsService
     {
         private readonly HttpClient _httpClient;
 
-        public EmployeeService(HttpClient httpClient)
+        public Guestservice(HttpClient httpClient)
         {
             _httpClient = httpClient;
         }
 
-        public async Task<IEnumerable<Employee>?> GetEmployees()
+        public async Task<IEnumerable<Guest>?> Getguests()
         {
-            var serverResponse = await _httpClient.GetStreamAsync("api/employee");
-            IEnumerable<Employee>? employees = await JsonSerializer.DeserializeAsync<IEnumerable<Employee>>(serverResponse, new JsonSerializerOptions() { PropertyNameCaseInsensitive = true });
+            var serverResponse = await _httpClient.GetStreamAsync("api/guest");
+            IEnumerable<Guest>? guests = await JsonSerializer.DeserializeAsync<IEnumerable<Guest>>(serverResponse, new JsonSerializerOptions() { PropertyNameCaseInsensitive = true });
 
-            return employees;
+            return guests;
         }
 
-        public async Task<bool> UpdateEmployee(Employee employee)
+        public async Task<bool> Updateguest(Guest guest)
         {
-            var serverResponse = await _httpClient.PostAsync("api/employee", new StringContent(JsonSerializer.Serialize(employee), Encoding.UTF8,"application/json"));        
+            var serverResponse = await _httpClient.PostAsync("api/guest", new StringContent(JsonSerializer.Serialize(guest), Encoding.UTF8,"application/json"));        
             return serverResponse.IsSuccessStatusCode;
         }
     }

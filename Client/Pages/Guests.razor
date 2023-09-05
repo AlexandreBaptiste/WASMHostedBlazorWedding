@@ -1,13 +1,13 @@
-﻿@page "/employees"
+﻿@page "/guests"
 
-<PageTitle>Employee</PageTitle>
+<PageTitle>guest</PageTitle>
 
 <h1>Weather forecast</h1>
 
 <p>This component demonstrates fetching data from the server.</p>
 
 
-@if (EmployeeList == null)
+@if (guestList == null)
 {
     <p><em>Loading...</em></p>
 }
@@ -21,11 +21,11 @@ else
             </tr>
         </thead>
         <tbody>
-            @foreach (var employee in EmployeeList)
+            @foreach (var guest in guestList)
             {
                 <tr>
-                    <td>@employee.Id</td>
-                    <td>@employee.Name</td>
+                    <td>@guest.Id</td>
+                    <td>@guest.Name</td>
                 </tr>
             }
         </tbody>

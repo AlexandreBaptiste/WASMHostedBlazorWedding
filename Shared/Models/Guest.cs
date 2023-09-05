@@ -1,6 +1,6 @@
 ﻿namespace Wedding.Shared.Models
 {
-    public class Employee
+    public class Guest
     {
 
         public Guid Id { get; set; }

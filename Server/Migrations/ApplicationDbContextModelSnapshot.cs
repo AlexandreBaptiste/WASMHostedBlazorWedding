@@ -22,7 +22,7 @@ namespace Wedding.Server.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
-            modelBuilder.Entity("RecipesManager.Shared.Objects.Employee", b =>
+            modelBuilder.Entity("RecipesManager.Shared.Objects.guest", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -34,7 +34,7 @@ namespace Wedding.Server.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Employees");
+                    b.ToTable("guests");
                 });
 #pragma warning restore 612, 618
         }
