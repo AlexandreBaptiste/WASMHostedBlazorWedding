@@ -8,5 +8,7 @@ namespace Wedding.Data
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) { }
 
         public DbSet<Guest> guests { get; set; }
+
+        public DbSet<Account> accounts { get; set; }
     }
 }

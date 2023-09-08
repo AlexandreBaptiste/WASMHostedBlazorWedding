@@ -5,11 +5,11 @@ using System.Text;
 
 namespace Wedding.Services
 {
-    public class Guestservice : IguestsService
+    public class GuestService : IGuestService
     {
         private readonly HttpClient _httpClient;
 
-        public Guestservice(HttpClient httpClient)
+        public GuestService(HttpClient httpClient)
         {
             _httpClient = httpClient;
         }

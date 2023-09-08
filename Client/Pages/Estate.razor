@@ -1,0 +1,70 @@
+﻿@inject IJSRuntime JSRuntime
+@implements IAsyncDisposable
+@page "/estate"
+
+
+
+<div class="container px-4">
+    <h1 class="p-3">Domaine de la Bernerie</h1>
+    <div class="row gx-5">       
+
+        <div class="col">
+            <div class="p-3">
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. In orci risus, aliquet id est et, viverra lacinia lorem. Nam ut lobortis ligula, ac dignissim diam. Mauris leo augue, scelerisque quis turpis vel, cursus elementum sapien.
+                    Mauris mollis ante nisl, vel posuere tellus finibus id. Donec non nisi sollicitudin, cursus odio id, tempus lectus.
+                    Proin eu diam efficitur, tempus tellus in, egestas lectus. Cras interdum nec leo quis vestibulum. Nullam velit erat, sodales sit amet turpis sed, maximus rhoncus risus. Cras condimentum in dui a ultricies.
+                </p>
+                <div class="alert alert-info p-3">
+                    Nous recherchons également des Sam &nbsp
+                    <span data-bs-toggle="tooltip" data-bs-html="true" title="<b>Sam<b/> désigne un capitaine de soirée ou conducteur désigné qui s'abstient de consommer de l’alcool et qui va être le conducteur qui ramènera son groupe d'amis">
+                        <i class="bi bi-info-circle"></i>
+                    </span>
+                    <br />
+                    Si vous êtes volontaire faites le savoir dans le formulaire       
+                </div>                
+            </div>
+        </div>
+        
+        <div class="col" id="map" style="width:400px; height:400px;"> </div>
+    </div>    
+</div>
+
+<Carousel />
+
+@code {
+    private IJSObjectReference? mapBox, uiEvents;
+
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {       
+
+        if (firstRender)
+        {
+            mapBox = await JSRuntime.InvokeAsync<IJSObjectReference>("import", "./js/mapbox.js");
+            uiEvents = await JSRuntime.InvokeAsync<IJSObjectReference>("import", "./js/ui-event.js");
+            if (mapBox != null)
+            {
+                await mapBox.InvokeVoidAsync("loadMap");                
+            }     
+
+            if(uiEvents != null)
+            {
+                await uiEvents.InvokeVoidAsync("addTooltips");
+            }
+        }
+    }
+
+    async ValueTask IAsyncDisposable.DisposeAsync()
+    {
+        if(mapBox != null)
+        {
+            await mapBox.DisposeAsync();
+        }
+
+        if (uiEvents != null)
+        {
+            await uiEvents.DisposeAsync();
+        }
+    }
+}

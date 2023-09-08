@@ -1,22 +1,21 @@
-﻿<!-- Header Section -->
-<header class="headerCustom" id="header">
-   <nav class="navbarCustom containerCustom">
-      <a href="/" class="brand">Mariage Léa & Alexandre</a>
-      <div class="burger @IsActive" id="burger" @onclick="ToggleNavMenu">
-         <span class="burger-line"></span>
-         <span class="burger-line"></span>
-         <span class="burger-line"></span>
-      </div>
-      <div class="menu @IsActive" id="menu" @onclick="ToggleNavMenu">
-         <ul class="menu-inner">
-            <li class="menu-item" ><a href="/" class="menu-link" @onclick="ResetMenu">Domaine</a></li>
-            <li class="menu-item"><a href="/guests" class="menu-link" @onclick="ResetMenu">Invités</a></li>
-            <li class="menu-item"><a href="/form" class="menu-link" @onclick="ResetMenu">Formulaire</a></li>
-         </ul>
-      </div>
-      <button class="menu-block"></button>
-   </nav>
-</header>
+﻿
+<nav class="navbarCustom containerCustom">
+    <a href="/" class="brand">Mariage Léa & Alexandre</a>
+    <div class="burger @IsActive" id="burger" @onclick="ToggleNavMenu">
+        <span class="burger-line"></span>
+        <span class="burger-line"></span>
+        <span class="burger-line"></span>
+    </div>
+    <div class="menu @IsActive" id="menu" @onclick="ToggleNavMenu">
+        <ul class="menu-inner">
+        <li class="menu-item" ><a href="/estate" class="menu-link" @onclick="ResetMenu">Domaine</a></li>
+        <li class="menu-item"><a href="/guests" class="menu-link" @onclick="ResetMenu">Invités</a></li>
+        <li class="menu-item"><a href="/login" class="menu-link" @onclick="ResetMenu">Formulaire</a></li>
+        </ul>
+    </div>
+    <button class="menu-block"></button>
+</nav>
+
 
 @code {
     private bool isActive = false;

@@ -1,9 +1,8 @@
-﻿using System.Threading.Tasks;
-using Wedding.Shared.Models;
+﻿using Wedding.Shared.Models;
 
 namespace Wedding.Interfaces
 {
-    public interface IguestsService
+    public interface IGuestService
     {
         Task<IEnumerable<Guest>?> Getguests();
 

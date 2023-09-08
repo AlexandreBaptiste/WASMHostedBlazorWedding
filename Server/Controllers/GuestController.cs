@@ -77,7 +77,8 @@ namespace Wedding.Server.Controllers
 
         }
 
-        [HttpPatch]
+        [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<ActionResult> Updateguest(Guest guest)
         {
             Guest? existingguest;

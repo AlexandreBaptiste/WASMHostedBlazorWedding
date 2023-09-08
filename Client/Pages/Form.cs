@@ -1,45 +1,62 @@
 ﻿using Microsoft.AspNetCore.Components;
-using Microsoft.AspNetCore.Components.Forms;
-using Wedding.Interfaces;
-using Wedding.Shared.Models;
 
 namespace Wedding.Client.Pages
 {
     public partial class Form : ComponentBase
     {
         [Inject]
-        public IguestsService? guestsService { get; set; }
-
-        [Inject]
         public ILogger<Guests>? Logger { get; set; }
 
-        public List<Guest> guestList { get; set; } = new List<Guest>();
+        [Inject]
+        public NavigationManager? NavigationManager { get; set; }
 
-        public Guest? guest { get; set; }
+        [Inject]
+        public Blazored.SessionStorage.ISessionStorageService? SessionStorageService { get; set; }
 
-        public string LastSubmitResult = string.Empty;
+        internal const string URL_FORM_HONNEUR = "https://form.jotform.com/232484125864359";
+        internal const string URL_FORM_LOVER   = "https://docs.google.com/forms/d/e/1FAIpQLSedqYG1DoTea-1NFZgt506gceOK8pI2yGifyuEj7r7OoGdlAA/viewform?embedded=true";
 
-        public EditContext? EditContext { get; set; }  
+        public string URL { get; set; } = string.Empty;
 
         protected override async Task OnInitializedAsync()
         {
-            if (guestsService != null)
+            if (SessionStorageService != null)
             {
-                var guests = await guestsService.Getguests();
-                guestList = guests != null && guests.Any() ? guests.ToList() : new List<Guest>();
-            }
-
-            if(guestList != null)
-            {
-                guest = guestList.FirstOrDefault();
-                EditContext = new EditContext(guestList);
-            }
+                string? isConnected = await SessionStorageService.GetItemAsync<string>("connected");
+                if (isConnected != null)
+                {
+                    if (bool.Parse(isConnected))
+                    {
+                        string formType = await SessionStorageService.GetItemAsync<string>("formtype");
+                        if (!string.IsNullOrEmpty(formType))
+                        {
+                            switch (formType)
+                            {
+                                case "Honneur":
+                                    URL = URL_FORM_HONNEUR;
+                                    break;
+                                case "Lover":
+                                    URL = URL_FORM_LOVER;
+                                    break;
+                                default:
+                                    break;
+                            }
+                        }
+                        else
+                        {
+                            NavigationManager?.NavigateTo("login");
+                        }
+                    }
+                    else
+                    {
+                        NavigationManager?.NavigateTo("login");
+                    }
+                }
+                else
+                {
+                    NavigationManager?.NavigateTo("login");
+                }
+            }         
         }
-
-        public void ValidFormSubmitted(EditContext editContext)
-        {
-            LastSubmitResult = editContext.Validate() ? "Success - form was valid" : "Failure - form was invalid";
-        }
-    
     }
 }

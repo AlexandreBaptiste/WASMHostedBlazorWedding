@@ -1,0 +1,18 @@
+﻿@page "/login"
+
+<PageTitle>Connexion</PageTitle>
+
+
+<EditForm Model="@Account" class="form" OnSubmit=@ValidFormSubmitted>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="inputEmail4">Identifiant</label>
+            <InputText @bind-Value="Account!.Id" class="form-control" id="inputEmail4" />
+        </div>
+        <div class="form-group col-md-6">
+            <label for="inputPassword4">Mot de passe</label>
+            <InputText @bind-Value="Account!.Secret" type="password" class="form-control" id="inputPassword4" placeholder="Mot de passe" />
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Se connecter</button>
+</EditForm>

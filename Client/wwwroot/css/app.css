@@ -108,27 +108,18 @@
     inset: calc(20vh + 3.25rem) 0 auto 0.2rem;
 }
 
-    .loading-progress-text:after {
-        content: var(--blazor-load-percentage-text, "Loading");
-    }
-
+.loading-progress-text:after {
+    content: var(--blazor-load-percentage-text, "Loading");
+}
 
 html {
-    font-size: 100%;
-    box-sizing: inherit;
-    scroll-behavior: smooth;
-    height: fit-content;
-    position: relative;
+    height:100%!important;
 }
-body {
-    font-family: "Inter", system-ui, ui-sans-serif, sans-serif;
+main {
+    padding: 5%;
+    background-color: lightgrey;
     font-size: var(--text-md);
     font-weight: normal;
     line-height: 1.5;
-    color: var(--black-500);
-    background-color: white;
-}
-main {
-    overflow: hidden;
-    margin-top: 4rem;
+    display:block;
 }

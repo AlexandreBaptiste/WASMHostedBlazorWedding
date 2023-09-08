@@ -1,9 +1,4 @@
-﻿.footer {
-    background-color: lightgreen;
-    height: 10%;
-}
-
-li {
+﻿li {
     display: inline-block;
     font-size: 0.75em;
     list-style-type: none;
