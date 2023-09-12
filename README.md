@@ -2,6 +2,7 @@
 # Blazor Wedding
 
 This is my first Blazor App using my wedding as inspiration.
+
 [![My Skills](https://skills.thijs.gg/icons?i=dotnet,html,css,visualstudio,cs,azure)](https://skills.thijs.gg)
 
 ## Deployment
