@@ -2,17 +2,20 @@
 
 <PageTitle>Connexion</PageTitle>
 
+<div class="login">
+    <div class="d-flex justify-content-center">
+        <EditForm Model="@Account" class="formCustom" OnSubmit=@ValidFormSubmitted>
+            <div class="row">
+                <InputText @bind-Value="Account!.Id" class="col customCol" id="inputEmail4" placeholder="Identifiant" />
 
-<EditForm Model="@Account" class="form" OnSubmit=@ValidFormSubmitted>
-    <div class="form-row">
-        <div class="form-group col-md-6">
-            <label for="inputEmail4">Identifiant</label>
-            <InputText @bind-Value="Account!.Id" class="form-control" id="inputEmail4" />
-        </div>
-        <div class="form-group col-md-6">
-            <label for="inputPassword4">Mot de passe</label>
-            <InputText @bind-Value="Account!.Secret" type="password" class="form-control" id="inputPassword4" placeholder="Mot de passe" />
-        </div>
+            </div>
+            <div class="row">
+                <InputText @bind-Value="Account!.Secret" type="password" class="col customCol" id="inputPassword4" placeholder="Mot de passe" />
+
+            </div>
+            
+            
+            <button type="submit" class="customButton">Se connecter</button>
+        </EditForm>
     </div>
-    <button type="submit" class="btn btn-primary">Se connecter</button>
-</EditForm>
+</div>

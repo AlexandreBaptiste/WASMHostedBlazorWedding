@@ -1,5 +1,6 @@
 @import url('open-iconic/font/css/open-iconic-bootstrap.min.css');
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap');
 
 :root {
     --white-100: #fff;
@@ -114,12 +115,49 @@
 
 html {
     height:100%!important;
+    font-family: 'Montserrat', sans-serif;
 }
+
+body {
+    background-color: #606c38 !important;
+}
+
 main {
     padding: 5%;
-    background-color: lightgrey;
+    background-color: #fefae0;
     font-size: var(--text-md);
     font-weight: normal;
     line-height: 1.5;
-    display:block;
+    display: block;
+    z-index: 0;
+}
+
+.customCol {
+    margin-top: 5% !important;
+    border-radius: 40px;
+    width: inherit;
+    height: 50px;
+    background-color: #fefae0;
+    opacity: 0.9;
+    font-family: Montserrat sans-serif;
+}
+
+    .customCol:hover {
+        opacity: 0.8;
+    }
+
+@media (min-width: 1100px) {
+    .formCustom {
+        margin-top: 10%;
+        width: 25%;
+        font-family: Montserrat sans-serif;
+    }
+}
+
+@media (max-width: 1100px) {
+    .formCustom {
+        margin-top: 10%;
+        width: 70%;
+        font-family: Montserrat sans-serif;
+    }
 }

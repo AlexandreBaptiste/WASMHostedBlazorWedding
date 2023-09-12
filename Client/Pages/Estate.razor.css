@@ -1,0 +1,18 @@
+﻿#map {
+    border: 4px solid #606c38;
+    margin: auto;
+    width: 500px;
+    height: 500px;
+}
+
+.alert-custom {
+    margin-top: 50px;
+    color: #fefae0 !important;
+    background-color: #606c38 !important;
+}
+
+.a-estate {
+    text-decoration: none;
+    color: #606c38;
+    font-weight: bold;
+}

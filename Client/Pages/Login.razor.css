@@ -1,3 +1,27 @@
-﻿form {
+﻿.customButton {
+    border: none;
+    border-radius: 40px;
+    text-transform: uppercase;
+    width: 100%;
+    height: 50px;
+    background-color: #283618;
+    cursor: pointer;
+    margin-top: 5%;
+    color: #fefae0 !important;
+}
 
+
+.login {
+    height: 100vh !important;
+    z-index: -3;
+    position: absolute;
+    top: 4rem;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    background-image: url('../img/bg-wide.jpg');
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }

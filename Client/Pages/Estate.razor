@@ -6,16 +6,22 @@
 
 <div class="container px-4">
     <h1 class="p-3">Domaine de la Bernerie</h1>
+
     <div class="row gx-5">       
 
-        <div class="col">
+        <div class="col-md-6">
             <div class="p-3">
                 <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. In orci risus, aliquet id est et, viverra lacinia lorem. Nam ut lobortis ligula, ac dignissim diam. Mauris leo augue, scelerisque quis turpis vel, cursus elementum sapien.
-                    Mauris mollis ante nisl, vel posuere tellus finibus id. Donec non nisi sollicitudin, cursus odio id, tempus lectus.
-                    Proin eu diam efficitur, tempus tellus in, egestas lectus. Cras interdum nec leo quis vestibulum. Nullam velit erat, sodales sit amet turpis sed, maximus rhoncus risus. Cras condimentum in dui a ultricies.
+                    Le vin d'honneur, la cérémonie laïque et la suite de l'évènement se dérouleront au <a class="a-estate" href="https://www.domainedelabernerie.fr/">Domaine de la Bernerie</a> situé à <br/> <i class="bi bi-geo-alt-fill"></i> La Bernerie, 85300 Froidfond.
                 </p>
-                <div class="alert alert-info p-3">
+                <p>
+                    Challans est à quinze minutes en voiture. Pour les couchages, vous retrouvez des campings et des gîtes dans les environs : <br />
+                    <i class="bi bi-geo-alt-fill"></i> <a href="http://hubertiere.com/" class="a-estate">Gîte de l'Hubertiere</a>, 4 L'Hubertière, 85670 Saint-Christophe-du-Ligneron <br />
+                    <i class="bi bi-geo-alt-fill"></i> <a href="http://www.gite-la-charrie-vendee.fr/" class="a-estate">Gîte de la Charrie</a>, La Charie, 85300 Froidfond <br />
+                    <i class="bi bi-geo-alt-fill"></i> Camping Bellevue du Ligneron, 85670 Saint-Christophe-du-Ligneron<br />
+                </p>
+                <div class="clearfix"></div>
+                <div class="alert alert-custom p-3">
                     Nous recherchons également des Sam &nbsp
                     <span data-bs-toggle="tooltip" data-bs-html="true" title="<b>Sam<b/> désigne un capitaine de soirée ou conducteur désigné qui s'abstient de consommer de l’alcool et qui va être le conducteur qui ramènera son groupe d'amis">
                         <i class="bi bi-info-circle"></i>
@@ -26,11 +32,13 @@
             </div>
         </div>
         
-        <div class="col" id="map" style="width:400px; height:400px;"> </div>
+        <div class="col-md-6" id="map"> </div>
     </div>    
 </div>
 
 <Carousel />
+
+<Footer />
 
 @code {
     private IJSObjectReference? mapBox, uiEvents;

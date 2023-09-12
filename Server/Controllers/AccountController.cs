@@ -36,7 +36,7 @@ namespace Wedding.Server.Controllers
             {
                 if (_dbOptions.Online)
                 {
-                    accounts = await _context.accounts.ToListAsync();
+                    accounts = await _context.Accounts.ToListAsync();
                 }
                 else
                 {
@@ -60,7 +60,7 @@ namespace Wedding.Server.Controllers
             {
                 if (_dbOptions.Online)
                 {
-                    account = await _context.accounts.FirstOrDefaultAsync(x => x.Id.Equals(id));
+                    account = await _context.Accounts.FirstOrDefaultAsync(x => x.Id == id);
                 }
                 else
                 {

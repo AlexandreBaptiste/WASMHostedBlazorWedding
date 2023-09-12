@@ -1,1 +1,21 @@
-﻿
+﻿.todoForm {
+    height: 92vh !important;
+    z-index: -3;
+    position: absolute;
+    top: 4rem;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    background-image: url('../img/bg-wide.jpg');
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.iframe {
+    width: 50%;
+    height: 85vh;
+    border: 4px solid #606c38;
+    margin-top: 2%;
+}

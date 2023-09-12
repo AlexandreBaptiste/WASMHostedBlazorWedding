@@ -1,26 +1,21 @@
-﻿<footer class="footer mt-auto py-3 bg-dark">
-    <div class="container">
-        <ul>
-            <li><span id="days">@days</span>Jours</li>
-            <li><span id="hours">@hours</span>Heures</li>
-            <li><span id="minutes">@minutes</span>Minutes</li>
-            <li><span id="seconds">@seconds</span>Secondes</li>
-        </ul>
-
-     
-        <ul>
-            <li>alexandre.baptiste.etu@gmail.com</li>
-            <li>07.78.31.17.61</li>
-            <li>lea.francheteau@gmail.com</li>
-            <li>07.78.31.17.61</li>
-        </ul>
-   </div>
+﻿<footer class="fixed-bottom @Hide">
+    <button type="button" class="btn-close" @onclick="CloseTimer" aria-label="Close"></button>    
+        <div class="d-flex">
+            <ul class=" list-inline mx-auto justify-content-center">
+                <li><span id="days">@days</span>Jours</li>
+                <li><span id="hours">@hours</span>Heures</li>
+                <li><span id="minutes">@minutes</span>Minutes</li>
+                <li><span id="seconds">@seconds</span>Secondes</li>
+            </ul>
+        </div>
 </footer>
 
 @code {
     private Timer? timer;
     private static DateTime tenthOfMay = new DateTime(2025, 5, 2);
     double days, hours, minutes, seconds;
+
+    private string? Hide;
 
     private void SetClock(object state)
     {
@@ -35,5 +30,15 @@
         await base.OnInitializedAsync();
         SetClock(null);
         timer = new Timer(SetClock, new AutoResetEvent(false), 1000, 1000);
+    }
+
+    protected override void OnInitialized()
+    {
+        Hide = null;
+    }
+
+    private void CloseTimer()
+    {
+        Hide = "hidden";
     }
 }

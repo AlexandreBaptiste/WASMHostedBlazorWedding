@@ -37,7 +37,7 @@ namespace Wedding.Server.Controllers
             {
                 if (_dbOptions.Online)
                 {
-                    guests = await _context.guests.ToListAsync();
+                    guests = await _context.Guests.ToListAsync();
                 }
                 else
                 {
@@ -61,7 +61,7 @@ namespace Wedding.Server.Controllers
             {
                 if (_dbOptions.Online)
                 {
-                    guest = await _context.guests.FirstOrDefaultAsync(x => x.Id == id);
+                    guest = await _context.Guests.FirstOrDefaultAsync(x => x.Id == id);
                 }
                 else
                 {
@@ -90,7 +90,7 @@ namespace Wedding.Server.Controllers
 
             if (_dbOptions.Online)
             {
-                existingguest = await _context.guests.FirstOrDefaultAsync(x => x.Id == guest.Id);
+                existingguest = await _context.Guests.FirstOrDefaultAsync(x => x.Id == guest.Id);
 
                 if(existingguest == null)
                 {
