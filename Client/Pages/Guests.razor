@@ -23,7 +23,6 @@ else
                         <th @onclick="() => OrderLastname()"  class="sortable">Nom</th>
                         <th>Status</th>
                         <th>Proche de</th>
-                        <th>Relation</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -42,12 +41,9 @@ else
                                 <span class="badge @Badge(guest?.Status) rounded-pill d-inline">@guest?.Status</span>
                             </td>
                             <td>
-                                <p>@guest?.RelatedTo</p>
-                            </td>
-                            <td>
                                 <div class="d-flex align-items-baseline">
-                                    <p class="fw-bold mb-1">@guest?.Relation</p>
-                                </div>
+                                    <p class="fw-bold mb-1">@guest?.RelatedTo</p>
+                                </div>                                
                             </td>
                         </tr>
                     }                               

@@ -222,7 +222,7 @@
     "Name": "PINCEMAILLE",
     "Firstname": "Charles",
     "Status": "En attente",
-    "RelatedTo": "Alexandre",
+    "RelatedTo": "Alex",
     "Relation": "Ami"
   },
   {
@@ -230,7 +230,7 @@
     "Name": "DOE",
     "Firstname": "John",
     "Status": "Refusé",
-    "RelatedTo": "Alexandre",
+    "RelatedTo": "Alex",
     "Relation": "Ami"
   }
 ] 
