@@ -54,24 +54,37 @@ namespace Wedding.Client.Pages
         /// Current page 
         /// </summary>
         private int SelectedIndex { get; set; }
+
+        private bool LastnameOrdered { get; set; }
+        private bool FirstnameOrdered { get; set; }
         #endregion
 
         protected override async Task OnInitializedAsync()
         {
-            if (GuestsService != null)
+            try
             {
-                var guests = await GuestsService.Getguests();
-                GuestList = guests != null && guests.Any() ? guests : new List<Guest>();
-
-                // In a larger projet I would do that server side, passing page number/size to API
-                // and loading desired chunks from DB
-                if (GuestList.Any())
+                if (GuestsService != null)
                 {
-                    PaginatedGuests = Partition(GuestList.ToList(), 2);
-                    SelectedGuestList = PaginatedGuests[0];
-                    SelectedIndex = 0;
-                }                        
+                    var guests = await GuestsService.Getguests();
+                    GuestList = guests != null && guests.Any() ? guests : new List<Guest>();
+
+                    // In a larger projet I would do that server side, passing page number/size to API
+                    // and loading desired chunks from DB
+                    if (GuestList.Any())
+                    {
+                        PaginatedGuests = Partition(GuestList.ToList(), 10);
+                        SelectedGuestList = PaginatedGuests[0];
+                        SelectedIndex = 0;
+                    }
+                }
             }
+            catch (Exception ex)
+            {
+                if (Logger != null && Logger.IsEnabled(LogLevel.Debug))
+                {
+                    Logger.LogTrace(string.Format("Erreur lors de OnInitializedAsync : {0}", ex.Message));
+                }   
+            }            
         }
 
         /// <summary>
@@ -101,6 +114,38 @@ namespace Wedding.Client.Pages
                 SelectedGuestList = PaginatedGuests[page];
                 SelectedIndex = page;
             }                                  
+        }
+
+        /// <summary>
+        /// Order by lastname current page
+        /// </summary>
+        private void OrderLastname()
+        {
+            if (LastnameOrdered)
+            {
+                SelectedGuestList = SelectedGuestList.OrderBy(x => x.Name);
+            }
+            else
+            {
+                SelectedGuestList = SelectedGuestList.OrderByDescending(x => x.Name);
+            }
+            LastnameOrdered = !LastnameOrdered;
+        }
+
+        /// <summary>
+        /// Order by firstname current page
+        /// </summary>
+        private void OrderFirstname()
+        {
+            if (FirstnameOrdered)
+            {
+                SelectedGuestList = SelectedGuestList.OrderBy(x => x.Firstname);
+            }
+            else
+            {
+                SelectedGuestList = SelectedGuestList.OrderByDescending(x => x.Firstname);
+            }
+            FirstnameOrdered = !FirstnameOrdered;
         }
 
         /// <summary>

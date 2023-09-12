@@ -19,3 +19,9 @@
     border: 4px solid #606c38;
     margin-top: 2%;
 }
+
+@media only screen and (max-width: 48rem) {
+    .iframe {
+        width: 75%;
+    }
+}

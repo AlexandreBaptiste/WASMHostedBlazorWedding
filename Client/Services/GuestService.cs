@@ -21,11 +21,5 @@ namespace Wedding.Services
 
             return guests;
         }
-
-        public async Task<bool> Updateguest(Guest guest)
-        {
-            var serverResponse = await _httpClient.PostAsync("api/guest", new StringContent(JsonSerializer.Serialize(guest), Encoding.UTF8,"application/json"));        
-            return serverResponse.IsSuccessStatusCode;
-        }
     }
 }

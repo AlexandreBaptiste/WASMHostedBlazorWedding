@@ -2,8 +2,6 @@
 @implements IAsyncDisposable
 @page "/estate"
 
-
-
 <div class="container px-4">
     <h1 class="p-3">Domaine de la Bernerie</h1>
 
@@ -18,7 +16,7 @@
                     Challans est à quinze minutes en voiture. Pour les couchages, vous retrouvez des campings et des gîtes dans les environs : <br />
                     <i class="bi bi-geo-alt-fill"></i> <a href="http://hubertiere.com/" class="a-estate">Gîte de l'Hubertiere</a>, 4 L'Hubertière, 85670 Saint-Christophe-du-Ligneron <br />
                     <i class="bi bi-geo-alt-fill"></i> <a href="http://www.gite-la-charrie-vendee.fr/" class="a-estate">Gîte de la Charrie</a>, La Charie, 85300 Froidfond <br />
-                    <i class="bi bi-geo-alt-fill"></i> Camping Bellevue du Ligneron, 85670 Saint-Christophe-du-Ligneron<br />
+                    <i class="bi bi-geo-alt-fill"></i> <a href="http://www.vendee-camping-bellevue.com/" class="a-estate">Camping Paradis, 85670 Saint-Christophe-du-Ligneron</a><br />
                 </p>
                 <div class="clearfix"></div>
                 <div class="alert alert-custom p-3">
@@ -49,6 +47,7 @@
 
         if (firstRender)
         {
+            /** Initialize MAPBOX & BOOSTRAP Tooltips **/
             mapBox = await JSRuntime.InvokeAsync<IJSObjectReference>("import", "./js/mapbox.js");
             uiEvents = await JSRuntime.InvokeAsync<IJSObjectReference>("import", "./js/ui-event.js");
             if (mapBox != null)
@@ -63,6 +62,10 @@
         }
     }
 
+    /// <summary>
+    /// Dispose JSRuntime
+    /// </summary>
+    /// <returns></returns>
     async ValueTask IAsyncDisposable.DisposeAsync()
     {
         if(mapBox != null)

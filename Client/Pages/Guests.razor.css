@@ -121,5 +121,25 @@ ul {
 
 .page-link {
     border: unset !important;
-    color: #3b71ca
+    color: #bc6c25;
+}
+
+.page-link:hover {
+    border: unset !important;
+    color: #bc6c25;
+}
+
+.sortable {
+    color: #bc6c25 !important;
+    font-weight: bold !important;
+    cursor: pointer;
+    transition: .2s ease-in-out 0s;
+}
+
+    .sortable:hover {
+        font-size: 1rem;
+    }
+
+.containerGuest{
+    margin-top: -7% !important;
 }

@@ -7,16 +7,21 @@ using Wedding.Shared.Models;
 
 namespace Wedding.Server.Controllers
 {
+    /// <summary>
+    /// Handle ONLINE/OFFLINE cf. DatabaseOptions
+    /// </summary>
     [Route("api/[controller]")]
     [ApiController]
     public class GuestController : Controller
     {
+        #region Properties
         private readonly ApplicationDbContext _context;
         private readonly string _jsonFilePath = "Data/Local/Guests.json";
         private readonly DatabaseOptions _dbOptions;
         private readonly List<Guest>? _guests;
-        
+        #endregion
 
+        #region Ctor
         public GuestController(ApplicationDbContext applicationDbContext, IOptions<DatabaseOptions> dbOptions)
         {
             _context = applicationDbContext;
@@ -27,6 +32,7 @@ namespace Wedding.Server.Controllers
                 _guests = JsonConvert.DeserializeObject<List<Guest>>(System.IO.File.ReadAllText(_jsonFilePath));
             }
         }
+        #endregion
 
         [HttpGet]
         public async Task<ActionResult<List<Guest>>> Getguests()

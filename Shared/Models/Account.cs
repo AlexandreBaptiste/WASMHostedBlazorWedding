@@ -3,17 +3,22 @@
 namespace Wedding.Shared.Models
 {
     /// <summary>
-    /// Type de compte 
-    /// Utilisé se connecter et permettre d'accéder au formulaire dédié
+    /// Account type
+    /// Mainly handle login form and redirect to specific form
     /// </summary>
     public class Account : IEquatable<Account>
     {
-        [Required]
+        [Required(ErrorMessage = "Identifiant obligatoire")]
         public string? Id { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Mot de passe obligatoire")]
         public string? Secret { get; set; }
 
+        /// <summary>
+        /// Override Equals for easier compare
+        /// </summary>
+        /// <param name="other"></param>
+        /// <returns></returns>
         public bool Equals(Account? other)
         {
             if (this is null) return false;
@@ -24,8 +29,7 @@ namespace Wedding.Shared.Models
             else
             {
                 return false;
-            }
-           
+            }           
         }
     }
 }

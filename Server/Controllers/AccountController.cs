@@ -7,15 +7,21 @@ using Wedding.Shared.Models;
 
 namespace Wedding.Server.Controllers
 {
+    /// <summary>
+    /// Handle ONLINE/OFFLINE cf. DatabaseOptions
+    /// </summary>
     [Route("api/[controller]")]
     [ApiController]
     public class AccountController : Controller
     {
+        #region Properties
         private readonly ApplicationDbContext _context;
         private readonly string _jsonFilePath = "Data/Local/Accounts.json";
         private readonly DatabaseOptions _dbOptions;
         private readonly List<Account>? _accounts;
+        #endregion
 
+        #region Ctor
         public AccountController(ApplicationDbContext applicationDbContext, IOptions<DatabaseOptions> dbOptions)
         {
             _context = applicationDbContext;
@@ -26,6 +32,7 @@ namespace Wedding.Server.Controllers
                 _accounts = JsonConvert.DeserializeObject<List<Account>>(System.IO.File.ReadAllText(_jsonFilePath));
             }
         }
+        #endregion
 
         [HttpGet]
         public async Task<ActionResult<List<Account>>> GetAccounts()
@@ -73,7 +80,6 @@ namespace Wedding.Server.Controllers
             }
 
             return Ok(account);
-
         }
     }
 }

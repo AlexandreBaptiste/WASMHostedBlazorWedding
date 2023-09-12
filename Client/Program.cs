@@ -14,5 +14,6 @@ builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.
 builder.Services.AddScoped<IGuestService, GuestService>();
 builder.Services.AddScoped<IAccountService, AccountService>();
 builder.Services.AddBlazoredSessionStorage();
+builder.Logging.SetMinimumLevel(LogLevel.None);
 
 await builder.Build().RunAsync();
