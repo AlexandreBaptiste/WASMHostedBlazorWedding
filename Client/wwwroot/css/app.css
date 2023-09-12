@@ -1,22 +1,8 @@
 @import url('open-iconic/font/css/open-iconic-bootstrap.min.css');
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap');
 
 :root {
-    --white-100: #fff;
-    --white-200: #e4e6e7;
-    --white-300: #c9cccf;
-    --white-400: #a1a6aa;
-    --white-500: #798086;
-    --black-100: #0a0d0f;
-    --black-200: #080a0c;
-    --black-300: #060809;
-    --black-400: #040506;
-    --black-500: #020303;
-    --brown-100: #d0c8c9;
-    --brown-200: #b8adae;
-    --brown-300: #a09293;
-    --brown-400: #887778;
-    --brown-500: #6d5f60;
     --text-xs: clamp(0.82rem, calc(0.8rem + 0.14vw), 0.9rem);
     --text-sm: clamp(0.91rem, calc(0.88rem + 0.14vw), 1rem);
     --text-md: clamp(1rem, calc(0.97rem + 0.14vw), 1.08rem);
@@ -34,6 +20,7 @@
     --shadow-large: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
     --primary-color: lightgreen;
     --secondary-color: #ce4088;
+    --smaller: 0.5;
 }
 
 .valid.modified:not([type=checkbox]) {
@@ -86,19 +73,19 @@
     margin: 20vh auto 1rem auto;
 }
 
-    .loading-progress circle {
-        fill: none;
-        stroke: #e0e0e0;
-        stroke-width: 0.6rem;
-        transform-origin: 50% 50%;
-        transform: rotate(-90deg);
-    }
+.loading-progress circle {
+    fill: none;
+    stroke: #e0e0e0;
+    stroke-width: 0.6rem;
+    transform-origin: 50% 50%;
+    transform: rotate(-90deg);
+}
 
-        .loading-progress circle:last-child {
-            stroke: #1b6ec2;
-            stroke-dasharray: calc(3.141 * var(--blazor-load-percentage, 0%) * 0.8), 500%;
-            transition: stroke-dasharray 0.05s ease-in-out;
-        }
+.loading-progress circle:last-child {
+    stroke: #1b6ec2;
+    stroke-dasharray: calc(3.141 * var(--blazor-load-percentage, 0%) * 0.8), 500%;
+    transition: stroke-dasharray 0.05s ease-in-out;
+}
 
 .loading-progress-text {
     position: absolute;
@@ -107,89 +94,99 @@
     inset: calc(20vh + 3.25rem) 0 auto 0.2rem;
 }
 
-    .loading-progress-text:after {
-        content: var(--blazor-load-percentage-text, "Loading");
-    }
-
+.loading-progress-text:after {
+    content: var(--blazor-load-percentage-text, "Loading");
+}
 
 html {
-    font-size: 100%;
-    box-sizing: inherit;
-    scroll-behavior: smooth;
-    height: fit-content;
+    height:100%!important;
+    font-family: 'Montserrat', sans-serif;
 }
+
 body {
-    font-family: "Inter", system-ui, ui-sans-serif, sans-serif;
+    background-color: #606c38 !important;
+}
+
+main {
+    padding: 5%;
+    background-color: #fefae0;
     font-size: var(--text-md);
     font-weight: normal;
     line-height: 1.5;
-    color: var(--black-500);
-    background-color: white;
-}
-main {
-    overflow: hidden;
-    /*margin-top: 4rem;*/
+    display: block;
+    z-index: 0;
 }
 
-/** En construction - à supprimer  */
-.board {
-    --deg: 5deg;
-    font-size: 3rem;
-    padding: 0.5em 1em;
-    background: green;
-    border-radius: 5px;
-    color: #fff;
-    font-family: 'Helvetica Neue', Arial, sans-serif;
-    position: absolute;
-    top: 50%;
-    left: 50%;
+/** Redfine Blazor Inputs only works in app.css */
+.customCol {
+    margin-top: 5% !important;
+    border-radius: 40px;
+    width: inherit;
+    height: 50px;
+    background-color: #fefae0;
+    opacity: 0.9;
+    font-family: Montserrat sans-serif;
     text-align: center;
-    transform: translate(-50%, -50%) rotate(calc(-1 * var(--deg)));
 }
 
-@media screen and (min-width: 480px) {
-    .board {
-        font-size: 4rem;
+    .customCol:hover {
+        opacity: 0.8;
+    }
+
+
+.validation-message {
+    text-align: center;
+    color: red;
+    font-family: 'Montserrat' sans-serif;
+    font-weight: bold;
+    font-size: var(--text-lg);
+}
+
+.hidden {
+    display: none;
+}
+
+@media (min-width: 1100px) {
+    .formCustom {
+        margin-top: 10%;
+        width: 25%;
+        font-family: Montserrat sans-serif;
     }
 }
 
-.board::before {
-    content: '';
-    position: absolute;
-    top: -50vh;
-    height: 50vh;
-    display: block;
-    left: 30px;
-    right: 30px;
-    transform: skew(calc(-1 * var(--deg)));
-    border: dotted lightgreen;
-    border-width: 0 8px;
-    transform-origin: bottom left;
-    padding-bottom: 30px;
+@media (max-width: 1100px) {
+    .formCustom {
+        margin-top: 10%;
+        width: 70%;
+        font-family: Montserrat sans-serif;
+    }
 }
 
-.board h1 {
-    margin: 0;
-    font-size: inherit;
+.mapboxgl-popup-content {
+    color: #fefae0 !important;
+    background-color: #bc6c25 !important;
+    border-color: #bc6c25 !important;
+    box-shadow: 3px 3px 2px #8B5D33 !important;
+    font-family: Montserrat sans-serif;
+    padding: 5px 5px 5px !important;
 }
 
-.board h1::before,
-.board h1::after {
-    content: '';
-    position: absolute;
-    top: 16px;
-    width: 20px;
-    height: 20px;
-    background-color: #fff;
-    border-radius: 50%;
-    box-shadow: inset 2px 2px 2px rgba(0, 0, 0, 0.4);
-    z-index: -1;
+.mapboxgl-popup-anchor-top .mapboxgl-popup-tip,
+.mapboxgl-popup-anchor-top-left .mapboxgl-popup-tip,
+.mapboxgl-popup-anchor-top-right .mapboxgl-popup-tip {
+    border-bottom-color: #bc6c25 !important;
 }
 
-.board h1:before {
-    left: 24px;
+.mapboxgl-popup-anchor-bottom .mapboxgl-popup-tip,
+.mapboxgl-popup-anchor-bottom-left .mapboxgl-popup-tip,
+.mapboxgl-popup-anchor-bottom-right .mapboxgl-popup-tip {
+    border-top-color: #bc6c25 !important;
 }
 
-.board h1:after {
-    right: 24px;
+.mapboxgl-popup-anchor-left .mapboxgl-popup-tip {
+    border-right-color: #bc6c25 !important;
+}
+
+.mapboxgl-popup-anchor-right .mapboxgl-popup-tip {
+    border-left-color: #bc6c25 !important;
 }

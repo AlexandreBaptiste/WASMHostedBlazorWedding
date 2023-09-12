@@ -1,0 +1,44 @@
+﻿<footer class="fixed-bottom @Hide">
+    <button type="button" class="btn-close" @onclick="CloseTimer" aria-label="Close"></button>    
+        <div class="d-flex">
+            <ul class=" list-inline mx-auto justify-content-center">
+                <li><span id="days">@days</span>Jours</li>
+                <li><span id="hours">@hours</span>Heures</li>
+                <li><span id="minutes">@minutes</span>Minutes</li>
+                <li><span id="seconds">@seconds</span>Secondes</li>
+            </ul>
+        </div>
+</footer>
+
+@code {
+    private Timer? timer;
+    private static DateTime tenthOfMay = new DateTime(2025, 5, 2);
+    double days, hours, minutes, seconds;
+
+    private string? Hide;
+
+    private void SetClock(object state)
+    {
+        days = (tenthOfMay - DateTime.Now).Days;
+        hours = 23 - DateTime.Now.Hour;
+        minutes = 59 - DateTime.Now.Minute;
+        seconds = 59 - DateTime.Now.Second;
+        StateHasChanged();
+    }
+    protected override async Task OnInitializedAsync()
+    {
+        await base.OnInitializedAsync();
+        SetClock(null);
+        timer = new Timer(SetClock, new AutoResetEvent(false), 1000, 1000);
+    }
+
+    protected override void OnInitialized()
+    {
+        Hide = null;
+    }
+
+    private void CloseTimer()
+    {
+        Hide = "hidden";
+    }
+}

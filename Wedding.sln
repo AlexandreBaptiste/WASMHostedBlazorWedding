@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.6.33815.320
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wedding.Server", "Server\Wedding.Server.csproj", "{56D0F320-D570-4650-8641-8FFEA3373640}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wedding.Server", "Server\Wedding.Server.csproj", "{56D0F320-D570-4650-8641-8FFEA3373640}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wedding.Client", "Client\Wedding.Client.csproj", "{17CA3249-B2D1-4BE5-9BF3-35D65AC9F8DD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wedding.Client", "Client\Wedding.Client.csproj", "{17CA3249-B2D1-4BE5-9BF3-35D65AC9F8DD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wedding.Shared", "Shared\Wedding.Shared.csproj", "{BEA192E8-9A1A-4A47-988D-4AAEDA1A720E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wedding.Shared", "Shared\Wedding.Shared.csproj", "{BEA192E8-9A1A-4A47-988D-4AAEDA1A720E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

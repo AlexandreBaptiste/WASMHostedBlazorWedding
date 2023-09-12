@@ -1,0 +1,145 @@
+﻿.text-primary {
+    color: #3b71ca !important;
+}
+
+.fw-bold {
+    font-weight: 500 !important;
+}
+
+h2 {
+    font-weight: 400;
+    margin-bottom: unset;
+}
+
+.action-icon {
+    font-size: 1.08rem;
+}
+
+/* //Badge color overwirte */
+
+
+
+.badge-success {
+    color: rgba(34,42,66,.7) !important;
+    background-color: #d6f0e0;
+    border: 1px solid;
+}
+
+.badge-primary {
+    color: #273e63 !important;
+    background-color: #dfe7f6;
+    border: 1px solid;
+}
+
+.badge-warning {
+    color: #73510d !important;
+    background-color: #fbf0da;
+    border: 1px solid;
+}
+
+.badge-danger {
+    color: #A61001 !important;
+    background-color: #FFEBE9;
+    border: 1px solid;
+}
+
+.time {
+    font-size: .75rem;
+}
+
+
+/* //Badge color overwirte end */
+
+
+/* table styling */
+
+/* primary table container  */
+.table-container {
+    box-shadow: 0px 1px 2px 0px rgb(60 64 67 / 25%), 0px 2px 6px 2px rgb(60 64 67 / 10%);
+    padding: 1rem;
+    border-radius: 12px;
+    background-color: white;
+}
+
+
+th {
+    padding: 1rem .5rem !important;
+    font-size: .875rem;
+    margin-bottom: 1rem !important;
+    background-color: white !important;
+    color: rgba(34,42,66,.7) !important;
+    font-weight: 600 !important;
+}
+
+    th:last-child {
+        border-top-right-radius: 12px;
+    }
+
+    th:first-child {
+        border-top-left-radius: 12px;
+    }
+
+/* //Removes border from last table row */
+
+tr td:last-child {
+    text-align: right;
+}
+
+
+/* Changing TH bottom border color*/
+.table > :not(:last-child) > :last-child > * {
+    border-bottom-color: rgba(128, 128, 128, 0.277) !important;
+}
+
+ul {
+    margin-bottom: 0rem !important;
+}
+
+
+/* table styling end*/
+
+/*  button styling */
+.btn-link {
+    font-weight: 500;
+    color: #273e63;
+    /* border:1px solid #2c58a094 !important; */
+    border-radius: 8px;
+    text-decoration: underline 0.1em rgb(255, 255, 255) !important;
+    text-underline-offset: 0.2em !important;
+    transition: text-decoration-color 300ms, text-underline-offset 300ms !important;
+}
+
+    .btn-link:hover {
+        text-decoration-color: #0d6efd !important;
+        text-underline-offset: 0.4em !important;
+    }
+
+.logout-btn {
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+.page-link {
+    border: unset !important;
+    color: #bc6c25;
+}
+
+.page-link:hover {
+    border: unset !important;
+    color: #bc6c25;
+}
+
+.sortable {
+    color: #bc6c25 !important;
+    font-weight: bold !important;
+    cursor: pointer;
+    transition: .2s ease-in-out 0s;
+}
+
+    .sortable:hover {
+        font-size: 1rem;
+    }
+
+.containerGuest{
+    margin-top: -7% !important;
+}

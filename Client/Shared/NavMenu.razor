@@ -1,38 +1,81 @@
-﻿<!-- Header Section -->
-<header class="headerCustom" id="header">
-   <nav class="navbarCustom containerCustom">
-      <a href="/" class="brand">Mariage Léa & Alexandre</a>
-      <div class="burger @IsActive" id="burger" @onclick="ToggleNavMenu">
-         <span class="burger-line"></span>
-         <span class="burger-line"></span>
-         <span class="burger-line"></span>
-      </div>
-      <div class="menu @IsActive" id="menu" @onclick="ToggleNavMenu">
-         <ul class="menu-inner">
-            <li class="menu-item" ><a href="/" class="menu-link" @onclick="ResetMenu">Domaine</a></li>
-            <li class="menu-item" ><a href="/" class="menu-link" @onclick="ResetMenu">Menu</a></li>
-            <li class="menu-item" ><a href="/" class="menu-link" @onclick="ResetMenu">Invités</a></li>
-         </ul>
-      </div>
-      <button class="menu-block"></button>
-   </nav>
+﻿
+<header>
+    <nav class="navbar navbarCustom containerCustom">
+        <a href="/" @onclick="() => ResetMenu(string.Empty)" class="brand">Mariage Léa & Alexandre</a>
+        <div class="burger @IsActive" id="burger" @onclick="ToggleNavMenu">
+            <span class="burger-line"></span>
+            <span class="burger-line"></span>
+            <span class="burger-line"></span>
+        </div>
+        <div class="menu @IsActive" id="menu" @onclick="ToggleNavMenu">
+            <ul class="menu-inner">
+                <li class="menu-item @IsCurrentDomaine"><a href="/estate" class="menu-link" @onclick="() => ResetMenu(_ESTATE)">Domaine</a></li>
+                <li class="menu-item @IsCurrentGuests"><a href="/guests" class="menu-link" @onclick="() => ResetMenu(_GUESTS)">Invités</a></li>
+                <li class="menu-item @IsCurrentForms"><a href="/login" class="menu-link" @onclick="() => ResetMenu(_FORMS)">Formulaire</a></li>
+            </ul>
+        </div>
+        <button class="menu-block"></button>
+    </nav>
 </header>
 
+
+
 @code {
-    private bool isActive = false;
+    const string _ESTATE = "ESTATE";
+    const string _GUESTS = "GUESTS";
+    const string _FORMS = "FORMS";
+
+    private bool isActive, isCurrentEstate, isCurrentGuests, isCurrentForms = false;
 
     private string? IsActive 
     {
-      get { return isActive ? "is-active" : null; }
-      set { }
+        get { return isActive ? "is-active" : null; }
+        set { }
     } 
+
+    private string? IsCurrentDomaine
+    {
+        get { return isCurrentEstate ? "current-page" : null; }
+        set { }
+    }
+
+    private string? IsCurrentGuests
+    {
+        get { return isCurrentGuests ? "current-page" : null; }
+        set { }
+    }
+
+    private string? IsCurrentForms
+    { 
+        get { return isCurrentForms ? "current-page" : null; }
+        set { }
+    }
+
     private void ToggleNavMenu()
     {
         isActive = !isActive;
     }
 
-    private void ResetMenu()
+    private void ResetMenu(string pMenu)
     {
-      IsActive = null;
+        IsActive = null;
+        switch (pMenu)
+        {
+            case _ESTATE:
+                isCurrentEstate = true;
+                isCurrentGuests = isCurrentForms = false;
+                break;
+            case _GUESTS:
+                isCurrentGuests = true;
+                isCurrentEstate = isCurrentForms = false;
+                break;
+            case _FORMS:
+                isCurrentForms = true;
+                isCurrentGuests = isCurrentEstate = false;
+                break;
+            default:
+                isCurrentEstate = isCurrentGuests = isCurrentForms = false;
+                break;
+        }
     }
 }

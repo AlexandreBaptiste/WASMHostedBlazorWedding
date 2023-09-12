@@ -1,0 +1,24 @@
+﻿@page "/login"
+
+<PageTitle>Connexion</PageTitle>
+
+<div class="login">
+    <div class="d-flex justify-content-center">
+        
+        <EditForm Model="@Account" class="formCustom" OnSubmit=@ValidFormSubmitted>
+            <DataAnnotationsValidator />
+            <div class="alert alert-danger validateKo @Hide">
+                Les informations renseignées ne sont pas valides
+            </div>
+            <div class="row">
+                <InputText @bind-Value="Account!.Id" class="col customCol" id="inputEmail4" placeholder="Identifiant" />
+                <ValidationMessage For="@(() => Account.Id)" />
+            </div>
+            <div class="row">
+                <InputText @bind-Value="Account!.Secret" type="password" class="col customCol" id="inputPassword4" placeholder="Mot de passe" />
+                <ValidationMessage For="@(() => Account.Secret)" />
+            </div>   
+            <button type="submit" class="customButton">Se connecter</button>
+        </EditForm>
+    </div>
+</div>
